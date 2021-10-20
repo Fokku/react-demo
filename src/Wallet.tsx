@@ -1,5 +1,4 @@
 import { WalletAdapterNetwork, WalletError } from '@solana/wallet-adapter-base';
-import { ConnectionProvider, WalletProvider } from '@solana/wallet-adapter-react';
 import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
 import {
     getLedgerWallet,
@@ -18,7 +17,6 @@ import Notification from './Notification';
 
 const Wallet: FC = () => {
     const network = WalletAdapterNetwork.Devnet;
-    const endpoint = useMemo(() => clusterApiUrl(network), [network]);
 
     // @solana/wallet-adapter-wallets imports all the adapters but supports tree shaking --
     // Only the wallets you want to support will be compiled into your application
@@ -49,14 +47,12 @@ const Wallet: FC = () => {
     );
 
     return (
-        <ConnectionProvider endpoint={endpoint}>
-            <WalletProvider wallets={wallets} onError={onError} autoConnect>
-                <WalletModalProvider>
-                    <Navigation />
-                </WalletModalProvider>
-                <Toaster position="bottom-left" reverseOrder={false} />
-            </WalletProvider>
-        </ConnectionProvider>
+        <>
+            <WalletModalProvider>
+                <Navigation />
+            </WalletModalProvider>
+            <Toaster position="bottom-left" reverseOrder={false} />
+        </>
     );
 };
 

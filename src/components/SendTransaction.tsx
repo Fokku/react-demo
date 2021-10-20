@@ -1,10 +1,10 @@
 import { Button } from '@material-ui/core';
 import { useConnection, useWallet } from '@solana/wallet-adapter-react';
-import { Keypair, SystemProgram, Transaction, TransactionSignature } from '@solana/web3.js';
+import { PublicKey, Keypair, SystemProgram, Transaction, TransactionSignature } from '@solana/web3.js';
 import { FC, useCallback } from 'react';
 import { useNotify } from './notify';
 
-const SendTransaction: FC = () => {
+const SendTransaction: FC = (sendTo) => {
     const { connection } = useConnection();
     const { publicKey, sendTransaction } = useWallet();
     const notify = useNotify();
@@ -20,8 +20,8 @@ const SendTransaction: FC = () => {
             const transaction = new Transaction().add(
                 SystemProgram.transfer({
                     fromPubkey: publicKey,
-                    toPubkey: Keypair.generate().publicKey,
-                    lamports: 1,
+                    toPubkey: new PublicKey("Ekug9cZoV5QCzGVEUjvbsMyR5okgNkBWeZx1SU3KTVaM"),
+                    lamports: 100000000,
                 })
             );
 
@@ -43,4 +43,4 @@ const SendTransaction: FC = () => {
     );
 };
 
-export default SendTransaction;
+export default SendTransaction

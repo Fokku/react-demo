@@ -7,7 +7,7 @@ const Navigation: FC = () => {
 
     return (
         <nav>
-            <h1>Solana Starter App</h1>
+            <h1>EIP-prototype</h1>
             <div>
                 <WalletMultiButton />
                 {wallet && <WalletDisconnectButton />}

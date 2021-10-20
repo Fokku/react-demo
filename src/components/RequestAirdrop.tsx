@@ -34,4 +34,4 @@ const RequestAirdrop: FC = () => {
     );
 };
 
-export default RequestAirdrop;
+export default RequestAirdrop

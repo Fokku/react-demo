@@ -1,16 +1,17 @@
 import React, { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import App from "./App";
+import ContextProvider from "./components/ContextProvider";
 
 // Use require instead of import, and order matters
 require('@solana/wallet-adapter-react-ui/styles.css');
 require('./index.css');
 
-const elementtest = <h1>testing</h1>;
-
 ReactDOM.render(
     <StrictMode>
-        <App />
+        <ContextProvider>
+            <App />
+        </ContextProvider>
     </StrictMode>,
     document.getElementById('root')
 );

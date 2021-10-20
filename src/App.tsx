@@ -3,6 +3,7 @@ import Wallet from './Wallet';
 
 import SendTransaction from './components/SendTransaction';
 import RequestAirdrop from './components/RequestAirdrop';
+import SignMessage from './components/SignMessage';
 
 function App() {
     return (
@@ -10,6 +11,7 @@ function App() {
         <Wallet />
         <RequestAirdrop />
         <SendTransaction />
+        <SignMessage />
       </div>
     );
   }
